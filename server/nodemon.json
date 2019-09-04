@@ -1,0 +1,7 @@
+{
+  "env": {
+    "MONGO_USER": "ryan1",
+    "MONGO_PASSWORD": "test1234",
+    "MONGO_DB": "junior-devs-app"
+  }
+}
