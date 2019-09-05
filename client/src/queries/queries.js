@@ -13,3 +13,16 @@ export const GET_CANDIDATES = gql`
     }
   }
 `
+export const GET_CANDIDATE = gql`
+  query($userId: ID) {
+    getUser(userId: $userId) {
+      email
+      username
+      id
+      linkedIn
+      github
+      bio
+      skills
+    }
+  }
+`

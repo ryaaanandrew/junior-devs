@@ -1,9 +1,24 @@
 import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { GET_CANDIDATE } from '../../queries/queries';
 
 const Details = props => {
-  var headerStyle = {
+  const { loading, data } = useQuery(GET_CANDIDATE, {
+    variables: {
+      userId: props.match.params.id
+    }
+  });
+
+  let headerStyle = {
     background: `url(${'https://i.imgur.com/ac0cL2E.jpg'})`
   };
+  
+  if(loading) {
+    return <h1>loading...</h1>
+  }
+
+  const { email, username, bio, skills } = data.getUser;
+  console.log(skills)
 
   return(
     <div className="container">
@@ -18,7 +33,7 @@ const Details = props => {
 
         <div className="details__header" style={headerStyle}>
           <div className="details__header-content">
-            <h1>Ryan Andrew</h1>
+            <h1>{ username }</h1>
             <h3>Web Developer</h3>
             <div className="header-actions">
               <a href="/null" className="header-actions__link">email</a>
@@ -30,18 +45,12 @@ const Details = props => {
 
         <div className="details__main">
           <div className="details__bio">
-            <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam aliquam fugit itaque, excepturi assumenda molestias praesentium ea pariatur quos est dolor quisquam ut facere reiciendis omnis accusantium voluptas iure harum?</h3>
+            <h3>{ bio }</h3>
           </div>
 
           <div className="details__skills">
             <ul className="skills__list">
-              <li className="skills__item">javascript</li>
-              <li className="skills__item">html</li>
-              <li className="skills__item">css</li>
-              <li className="skills__item">python</li>
-              <li className="skills__item">react</li>
-              <li className="skills__item">ruby on rails</li>
-              <li className="skills__item">nodejs</li>
+              { skills.map(skill => <li className="skills__item"><span>{ skill }</span></li>) }
             </ul>
           </div>
         </div>

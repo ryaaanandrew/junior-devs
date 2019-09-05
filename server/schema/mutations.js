@@ -23,6 +23,13 @@ const RootMutation = new GraphQLObjectType({
         skills: { type: new GraphQLNonNull(new GraphQLList(GraphQLString)) }
       },
       async resolve (parent, args) {
+        const registeredEmail = await User.findOne({ email: args.email });
+        const registeredUsername = await User.findOne({ email: args.email });
+        
+        if(registeredEmail || registeredUsername) {
+          throw new Error('User already registered, Please log in');
+        };
+
         const hashedPassword = await bcrypt.hash(args.password, 12);
         let user = new User({
           email: args.email,
@@ -33,7 +40,7 @@ const RootMutation = new GraphQLObjectType({
           linkedIn: args.linkedIn,
           skills: args.skills
         });
-        const results = await user.save();
+        return await user.save();
       }
     }
   }

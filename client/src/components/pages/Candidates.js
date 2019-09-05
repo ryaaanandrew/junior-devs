@@ -16,14 +16,14 @@ const Register = () => {
   };
 
   return(
-    <div className="container">
-      <div className="candidates">
-        <h1 className="candidates__header">Meet your future developers</h1>
-        <div className="candidates__list">
-          {renderList()}
+      <div className="container">
+        <div className="candidates">
+          <h1 className="candidates__header">Meet your future developers</h1>
+          <div className="candidates__list">
+            {renderList()}
+          </div>
         </div>
       </div>
-    </div>
   );
 };
 
