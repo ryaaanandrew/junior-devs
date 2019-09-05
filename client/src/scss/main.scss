@@ -21,7 +21,8 @@ a:visited {
 
 .container {
   padding-top: 10rem;
+  min-height: 100vh;
   background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
-  height: 95vh;
   z-index: 0;
+  overflow: scroll;
 }
