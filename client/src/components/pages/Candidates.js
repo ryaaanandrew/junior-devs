@@ -8,12 +8,12 @@ const Register = () => {
   const { users } = data;
 
   const renderList = () => {
-    return users.map(user => <Card user={user} key={user.id}/>)
+    return users.map(user => <Card user={user} key={user.id}/>);
   };
   
   if(loading) {
     return <h1>Loading...</h1>
-  }
+  };
 
   return(
     <div className="container">

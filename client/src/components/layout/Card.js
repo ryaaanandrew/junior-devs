@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom';
 
 const Card = props => {
   const { user } = props;
-  console.log('props: ', props)
+
   return(
-    <NavLink to='/'>
+    <NavLink to={`/user/${user.username}`}>
       <div className="card">
         <div className="card__photo"><i className="fas fa-user fa-5x"></i></div>
         <h1 className="card__header">{user.username}</h1>

@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Candidates from './pages/Candidates';
 import About from './pages/About';
 import Register from './pages/Register';
+import CandidateDetails from './pages/CandidateDetails';
 
 const client = new ApolloClient({
   uri: 'http://localhost:3001/graphql'
@@ -22,6 +23,7 @@ const App = () => {
             <Route path='/Candidates' component={Candidates} />
             <Route path='/About' component={About} />
             <Route path='/Register' component={Register} />
+            <Route path='/user/:id' component={CandidateDetails} />
           </Switch>
       </BrowserRouter>
     </ApolloProvider>

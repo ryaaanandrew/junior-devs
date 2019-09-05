@@ -19,6 +19,53 @@ h1 {
     justify-content: center;
     align-items: center; }
 
+.details {
+  background-color: #1f1f1f;
+  width: 90%;
+  height: 90vh;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 0px 0px 21px 5px rgba(0, 0, 0, 0.25);
+  overflow: hidden; }
+  .details__header {
+    height: 50%; }
+  .details__header-content {
+    height: 100%;
+    background: linear-gradient(to top, #1f1f1f 10%, rgba(0, 0, 255, 0));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; }
+    .details__header-content h1, .details__header-content h3 {
+      font-family: 'Raleway', sans-serif;
+      color: white;
+      margin-left: 5rem; }
+    .details__header-content h1 {
+      font-size: 6rem;
+      font-weight: 300; }
+    .details__header-content h3 {
+      font-size: 2rem; }
+
+.mini-nav {
+  background-color: #1f1f1f;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; }
+  .mini-nav__links {
+    display: flex;
+    padding: 1rem; }
+  .mini-nav__item {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: .7rem;
+    border-radius: 50%; }
+    .mini-nav__item--red {
+      background-color: #ff5f5f; }
+    .mini-nav__item--grey {
+      background-color: gray; }
+    .mini-nav__item--green {
+      background-color: #81ca6b; }
+
 .navBar {
   padding: 1rem 1.5rem;
   position: relative;
