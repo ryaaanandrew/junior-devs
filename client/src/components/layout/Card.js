@@ -8,7 +8,7 @@ const Card = props => {
     <div className="card">
       <NavLink to={`/user/${user.id}`}>
         <div className="card__photo"><i className="fas fa-user fa-5x"></i></div>
-        <h1 className="card__header">{user.username}</h1>
+        <h2 className="card__header">{user.username}</h2>
       </NavLink>
         <div className="card__actions">
           <a href={`http://${ user.linkedIn }`}>
