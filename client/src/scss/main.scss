@@ -1,5 +1,7 @@
 @import './typography';
+@import './components/pages/candidates';
 @import './components/layout/navBar';
+@import './components/layout/card';
 
 * {
   padding: 0;
@@ -15,4 +17,11 @@ a,
 a:visited {
   color: inherit;
   text-decoration: none;
+}
+
+.container {
+  padding-top: 10rem;
+  background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
+  height: 95vh;
+  z-index: 0;
 }
