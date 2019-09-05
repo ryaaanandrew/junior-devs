@@ -20,7 +20,7 @@ h1 {
     align-items: center; }
 
 .details {
-  background-color: #1f1f1f;
+  background-color: #161616;
   width: 90%;
   height: 90vh;
   margin: 0 auto;
@@ -31,7 +31,7 @@ h1 {
     height: 50%; }
   .details__header-content {
     height: 100%;
-    background: linear-gradient(to top, #1f1f1f 10%, rgba(0, 0, 255, 0));
+    background: linear-gradient(to top, #161616 10%, rgba(0, 0, 255, 0));
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,24 +39,66 @@ h1 {
     .details__header-content h1, .details__header-content h3 {
       font-family: 'Raleway', sans-serif;
       color: white;
-      margin-left: 5rem; }
-    .details__header-content h1 {
-      font-size: 6rem;
+      margin-left: 5rem;
       font-weight: 300; }
+    .details__header-content h1 {
+      font-size: 6rem; }
     .details__header-content h3 {
-      font-size: 2rem; }
+      margin-left: 5.5rem;
+      font-size: 2.5rem;
+      letter-spacing: 3px; }
+    .details__header-content .header-actions {
+      margin: 3rem 0 0 5rem; }
+      .details__header-content .header-actions__link {
+        background-color: rgba(0, 0, 0, 0.4);
+        display: inline-block;
+        width: 12rem;
+        color: #f0f0f0;
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        margin: 0 1.5rem;
+        border: 1px solid white;
+        padding: 1rem 1.5rem;
+        border-radius: 2rem;
+        text-align: center;
+        text-transform: uppercase;
+        transition: all .25s ease-out; }
+        .details__header-content .header-actions__link:hover {
+          background-color: #1db954;
+          border: 1px solid #1db954;
+          color: black; }
+  .details__main {
+    color: white;
+    height: 45%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; }
+  .details__bio {
+    width: 35%;
+    border: 1px solid blue; }
+  .details__skills {
+    width: 55%; }
+    .details__skills .skills__item {
+      font-size: 1.8rem;
+      padding: .5rem 1rem;
+      border-bottom: 1px solid rgba(102, 102, 102, 0.431);
+      transition: all .25s ease-out; }
+      .details__skills .skills__item:hover {
+        background-color: rgba(102, 102, 102, 0.431); }
+      .details__skills .skills__item:first-child {
+        border-top: 1px solid rgba(102, 102, 102, 0.431); }
 
 .mini-nav {
-  background-color: #1f1f1f;
+  background-color: #4B4B4C;
   display: flex;
   justify-content: flex-start;
   align-items: center; }
   .mini-nav__links {
     display: flex;
-    padding: 1rem; }
+    padding: .7rem; }
   .mini-nav__item {
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 1.3rem;
+    width: 1.3rem;
     margin-right: .7rem;
     border-radius: 50%; }
     .mini-nav__item--red {
@@ -64,7 +106,7 @@ h1 {
     .mini-nav__item--grey {
       background-color: gray; }
     .mini-nav__item--green {
-      background-color: #81ca6b; }
+      background-color: #77cf5c; }
 
 .navBar {
   padding: 1rem 1.5rem;
