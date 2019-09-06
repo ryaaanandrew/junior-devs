@@ -2,8 +2,8 @@
 
 ## current state
 
-![registration page](https://i.imgur.com/Chp6MO3.png)
-![user details](https://i.imgur.com/YKEbZCk.png)
+![registration page](https://i.imgur.com/Chp6MO3.png?1)
+![user details](https://i.imgur.com/YKEbZCk.png?1)
 ![user list](https://i.imgur.com/AUmWgT9.png?1)
 
 ## todo
