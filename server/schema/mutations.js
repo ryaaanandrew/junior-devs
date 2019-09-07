@@ -30,6 +30,8 @@ const RootMutation = new GraphQLObjectType({
           throw new Error('User already registered, Please log in');
         };
 
+        console.log(args)
+
         const hashedPassword = await bcrypt.hash(args.password, 12);
         let user = new User({
           email: args.email,

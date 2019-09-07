@@ -114,36 +114,3 @@
     }
   }
 }
-
-.mini-nav {
-  // background-color: rgb(31, 31, 31);
-  background: linear-gradient(to right, rgb(66, 66, 66) 0%, rgb(53, 53, 53) 63%, rgb(39, 39, 39) 100%);
-
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-
-  &__links {
-    display: flex;
-    padding: .7rem;
-  }
-
-  &__item {
-    height: 1.3rem;
-    width: 1.3rem;
-    margin-right: .7rem;
-    border-radius: 50%;
-
-    &--red {
-      background-color: rgb(255, 95, 95);
-    }
-
-    &--grey {
-      background-color: rgb(128, 128, 128);
-    }
-
-    &--green{
-      background-color: rgb(119, 207, 92);
-    }
-  }
-}

@@ -1,21 +1,12 @@
-import React, { useReducer } from 'react';
-import { formReducer } from '../../context/formReducer';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context/authContext';
 
-const RegistrationForm = () => {
-  const INITIAL_STATE = {
-    email: "",
-    username: "",
-    password: "",
-    password2: "",
-    bio: "",
-    github: "",
-    linkedIn: "",
-    skills: "",
-  };
-  const [form, dispatch] = useReducer(formReducer, INITIAL_STATE);
+const RegistrationForm = props => {
+  const context = useContext(AuthContext);
+  const { form, dispatch } = context;
 
   return(
-    <form className="form">
+    <form className="form" onSubmit={e => props.handleSubmit(e)}>
       <h1>Create an account</h1> 
       <div className="form__section--row">
         <div className="form__section--column">
@@ -83,6 +74,9 @@ const RegistrationForm = () => {
             onChange={e => dispatch({ type: 'SKILLS', payload: e.target.value })}
             />
         </div>
+      </div>
+      <div className="form__actions">
+        <button className="form__button"></button>
       </div>
     </form>
   );  

@@ -15,6 +15,7 @@ UserType = new GraphQLObjectType({
     bio: { type: GraphQLString },
     linkedIn: { type: GraphQLString },
     github: { type: GraphQLString },
+    photourl: { type: GraphQLString },
     skills: { type: new GraphQLList(GraphQLString) }
   })
 });

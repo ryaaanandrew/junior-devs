@@ -10,6 +10,7 @@ export const GET_CANDIDATES = gql`
       linkedIn
       github
       skills
+      photourl
     }
   }
 `

@@ -8,6 +8,7 @@ import Candidates from './pages/Candidates';
 import About from './pages/About';
 import Register from './pages/Register';
 import CandidateDetails from './pages/CandidateDetails';
+import AuthContextProvider from '../context/authContext';
 
 const client = new ApolloClient({
   uri: 'http://localhost:3001/graphql'
@@ -17,14 +18,16 @@ const App = () => {
   return(
     <ApolloProvider client={client}>
       <BrowserRouter>
+        <AuthContextProvider>
           <NavBar />  
           <Switch>
             <Route path='/' exact component={Home} />
-            <Route path='/Candidates' component={Candidates} />
-            <Route path='/About' component={About} />
-            <Route path='/Register' component={Register} />
+            <Route path='/candidates' component={Candidates} />
+            <Route path='/about' component={About} />
+            <Route path='/register' component={Register} />
             <Route path='/user/:id' component={CandidateDetails} />
           </Switch>
+        </AuthContextProvider>
       </BrowserRouter>
     </ApolloProvider>
   );

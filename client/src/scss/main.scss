@@ -1,10 +1,14 @@
 @import './typography';
+
 @import './components/pages/candidates';
 @import './components/pages/candidateDetails';
 @import './components/pages/register';
+
 @import './components/layout/navBar';
 @import './components/layout/card';
 @import './components/layout/registrationForm';
+@import './components/layout/miniNav';
+
 
 * {
   padding: 0;
@@ -43,7 +47,6 @@ label:focus,
 .container {
   padding-top: 10rem;
   background-image: linear-gradient(to top, #993e3e 0%, #812222 100%);
-  z-index: 0;
   min-height: 100vh;
   overflow: scroll;
 }

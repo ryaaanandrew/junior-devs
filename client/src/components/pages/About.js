@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Register = () => {
+const About = () => {
   return(
-    <h1>About</h1>
+    <div className="container">
+      <h2 style={{ fontSize: '4rem '}}>come back soon!</h2>
+    </div>
   );
 };
 
-export default Register;
+export default About;

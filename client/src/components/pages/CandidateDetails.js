@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_CANDIDATE } from '../../queries/queries';
+import MiniNav from '../layout/MiniNav';
 
 const Details = props => {
   const { loading, data } = useQuery(GET_CANDIDATE, {
@@ -10,27 +11,16 @@ const Details = props => {
   });
 
   let headerStyle = {
-    background: `url(${'https://i.imgur.com/ac0cL2E.jpg'})`
+    background: `url(${'https://i.imgur.com/hXU3x28.png'})`
   };
   
-  if(loading) {
-    return <h1>loading...</h1>
-  }
+  if(loading) return <h1>loading...</h1>;
 
-  const { email, username, bio, skills } = data.getUser;
-  console.log(skills)
-
+  const { email, username, bio, skills, id } = data.getUser;
   return(
     <div className="container">
       <div className="details">
-        <div className="mini-nav">
-          <ul className="mini-nav__links">
-            <li className="mini-nav__item mini-nav__item--red"></li>
-            <li className="mini-nav__item mini-nav__item--grey"></li>
-            <li className="mini-nav__item mini-nav__item--green"></li>
-          </ul>
-        </div>
-
+        <MiniNav />
         <div className="details__header" style={headerStyle}>
           <div className="details__header-content">
             <h1>{ username }</h1>
@@ -42,19 +32,16 @@ const Details = props => {
             </div>
           </div>
         </div>
-
         <div className="details__main">
           <div className="details__bio">
             <h3>{ bio }</h3>
           </div>
-
           <div className="details__skills">
             <ul className="skills__list">
-              { skills.map(skill => <li className="skills__item"><span>{ skill }</span></li>) }
+              { skills.map(skill => <li className="skills__item" key={id}><span><span>+</span>  { skill }</span></li>) }
             </ul>
           </div>
         </div>
-
       </div>
     </div>
   );
