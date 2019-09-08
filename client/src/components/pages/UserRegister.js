@@ -27,7 +27,7 @@ const Register = props => {
 
   return(
     <div className="container">
-      <div className="register">
+      <div className="user-register">
         <div className="busCard">
           <div className="busCard__header">
             <h3>{ username }</h3>
@@ -39,7 +39,7 @@ const Register = props => {
             <span><i className="fas fa-envelope"></i> + { email }</span>
           </div>
         </div>
-        <div className="register__controls">
+        <div className="user-register__controls">
           <MiniNav />
           <RegistrationForm handleSubmit={handleSubmit}/>
         </div>
