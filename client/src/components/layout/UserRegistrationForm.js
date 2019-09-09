@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/authContext';
 
-const RegistrationForm = props => {
+const UserRegistrationForm = props => {
   const context = useContext(AuthContext);
   const { form, dispatch } = context;
 
@@ -76,10 +76,10 @@ const RegistrationForm = props => {
         </div>
       </div>
       <div className="form__actions">
-        <button className="form__button"></button>
+        <button className="form__button"><i className="fas fa-angle-double-right fa-3x"></i></button>
       </div>
     </form>
   );  
 };
 
-export default RegistrationForm;
+export default UserRegistrationForm;

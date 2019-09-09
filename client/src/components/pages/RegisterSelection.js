@@ -19,7 +19,7 @@ const RegisterSelection = props => {
                 <div className="registration__left">
                   <h1>Employers</h1>
                   <NavLink to='/register/employer' className="registration__btn">
-                    <span>register</span>
+                    <span>register <i className="fas fa-angle-double-right"></i></span>
                   </NavLink>
                 </div>
                 <div className="registration__middle">
@@ -27,7 +27,7 @@ const RegisterSelection = props => {
                 <div className="registration__right">
                   <h1 id="registration--header">Developers</h1>
                   <NavLink to="/register/user" className="registration__btn">
-                    <span>register</span>
+                    <span>register <i className="fas fa-angle-double-right"></i></span>
                   </NavLink>
                 </div>
               </div>

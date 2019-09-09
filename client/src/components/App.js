@@ -6,11 +6,11 @@ import NavBar from './layout/NavBar';
 import Home from './pages/Home';
 import Candidates from './pages/Candidates';
 import About from './pages/About';
-import UserRegister from './pages/UserRegister';
+import UserRegistration from './pages/UserRegistration';
 import CandidateDetails from './pages/CandidateDetails';
 import AuthContextProvider from '../context/authContext';
 import RegisterSelection from './pages/RegisterSelection';
-import EmployerRegister from './pages/EmployerRegister';
+import EmployerRegistration from './pages/EmployerRegistration';
 
 const client = new ApolloClient({
   uri: 'http://localhost:3001/graphql'
@@ -27,8 +27,8 @@ const App = () => {
             <Route path='/candidates' component={Candidates} />
             <Route path='/about' component={About} />
             <Route path='/register' exact component={RegisterSelection} />
-            <Route path='register/employer/' component={EmployerRegister} />
-            <Route path='/register/user' component={UserRegister} />
+            <Route path='/register/employer/' component={EmployerRegistration} />
+            <Route path='/register/user' component={UserRegistration} />
             <Route path='/user/:id' component={CandidateDetails} />
           </Switch>
         </AuthContextProvider>

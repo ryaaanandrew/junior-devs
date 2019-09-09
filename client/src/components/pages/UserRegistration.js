@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import RegistrationForm from '../layout/RegistrationForm';
+import UserRegistrationForm from '../layout/UserRegistrationForm';
 import MiniNav from '../layout/MiniNav';
 import { AuthContext } from '../../context/authContext';
 import { GET_CANDIDATES } from '../../queries/queries';
 
-const Register = props => {
+const UserRegistration = props => {
   const context = useContext(AuthContext);
   const { email, username, linkedIn, github } = context.form;
   const { form, createUser } = context;
@@ -41,11 +41,11 @@ const Register = props => {
         </div>
         <div className="user-register__controls">
           <MiniNav />
-          <RegistrationForm handleSubmit={handleSubmit}/>
+          <UserRegistrationForm handleSubmit={handleSubmit}/>
         </div>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default UserRegistration;
