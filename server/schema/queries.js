@@ -1,6 +1,7 @@
 const { GraphQLObjectType, GraphQLList, GraphQLID } = require('graphql');
-const { UserType } = require('./types');
-const User = require('../models/user')
+const { UserType, EmployerType } = require('./types');
+const User = require('../models/user');
+const Employer = require('../models/employer');
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQuery',
@@ -17,6 +18,12 @@ const RootQuery = new GraphQLObjectType({
       async resolve(parent, args) {
         const user = await User.findById(args.userId);
         return user;
+      }
+    },
+    getEmployers: {
+      type: new GraphQLList(EmployerType),
+      async resolve(parent, args) {
+        return Employer.find()
       }
     }
   }

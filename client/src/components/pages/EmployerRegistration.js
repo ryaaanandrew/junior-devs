@@ -6,22 +6,20 @@ const EmployerRegistration = props => {
 
   return(
     <div className="container">
-      <div className="user-register">
-        <div className="busCard">
-          <div className="busCard__header">
-            <h3></h3>
-            <h4>Web Developer Extordinaire</h4>
+      <div className="user-register__controls">
+        <MiniNav />
+        <form className="form">
+          <h1>Create an account</h1>
+          <div className="form__section--column">
+            <label htmlFor="email">email</label>
+            <input type="text" name="email"/>
+            <label htmlFor="email">password</label>
+            <input type="text" name="email"/>
           </div>
-          <div className="busCard__contact">
-            <span><i className="fab fa-linkedin-in"></i> </span>
-            <span><i className="fab fa-github"></i></span>
-            <span><i className="fas fa-envelope"></i> </span>
+          <div className="form__actions">
+            <button className="form__button"><i className="fas fa-angle-double-right fa-3x"></i></button>
           </div>
-        </div>
-        <div className="user-register__controls">
-          <MiniNav />
-          <UserRegistrationForm handleSubmit={null}/>
-        </div>
+        </form>
       </div>
     </div>
   );

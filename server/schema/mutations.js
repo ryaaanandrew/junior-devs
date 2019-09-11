@@ -6,7 +6,8 @@ const {
 } = require('graphql');
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
-const { UserType } = require('./types');
+const Employer = require('../models/employer');
+const { UserType, EmployerType } = require('./types');
 
 const RootMutation = new GraphQLObjectType({
   name: 'Mutation',
@@ -30,8 +31,6 @@ const RootMutation = new GraphQLObjectType({
           throw new Error('User already registered, Please log in');
         };
 
-        console.log(args)
-
         const hashedPassword = await bcrypt.hash(args.password, 12);
         let user = new User({
           email: args.email,
@@ -43,6 +42,30 @@ const RootMutation = new GraphQLObjectType({
           skills: args.skills
         });
         return await user.save();
+      }
+    },
+    createEmployer: {
+      type: EmployerType,
+      args: {
+        email: { type: new GraphQLNonNull(GraphQLString) },
+        password: { type: new GraphQLNonNull(GraphQLString) },
+        company: { type: new GraphQLNonNull(GraphQLString) }
+      },
+      async resolve(parent, args) {
+        const registeredEmployer = await Employer.findOne({ email: args.email });
+
+        if(registeredEmployer) {
+          throw new Error('Employer email already registered, Please log in');
+        };
+        const hashedPassword = await bcrypt.hash(args.password, 12);
+
+        let employer = new Employer({
+          email: args.email,
+          password: hashedPassword,
+          company: args.company
+        });
+        
+        return await employer.save();
       }
     }
   }

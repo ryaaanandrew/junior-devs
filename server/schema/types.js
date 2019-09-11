@@ -20,6 +20,17 @@ UserType = new GraphQLObjectType({
   })
 });
 
+EmployerType = new GraphQLObjectType({
+  name: 'Employer',
+  fields: () => ({
+    id: { type: GraphQLID },
+    email: { type: GraphQLString },
+    password: { type: GraphQLString },
+    company: { type: GraphQLString }
+  })
+});
+
 module.exports = {
-  UserType
+  UserType,
+  EmployerType
 }
