@@ -23,6 +23,21 @@
     height: 100%;
   }
 
+  &__skills {
+    width: 80%;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+
+    & > li {
+      font-size: 1.4rem;
+      border: 1px solid $color-primary;
+      border-radius: 5px;
+      padding: .5rem 1rem;
+    }
+  }
+
   &__right {
     color: white;
     background: linear-gradient(120deg,  rgb(22, 22, 22) 40%,rgb(34, 34, 34));
