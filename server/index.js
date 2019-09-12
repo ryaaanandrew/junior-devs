@@ -16,6 +16,6 @@ app.use('/graphQL', graphQLHTTP({
  
 mongoose.connect(
   `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-8nozd.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`,
-  { useNewUrlParser: true }
+  { useNewUrlParser: true, useFindAndModify: false }
   ).then(app.listen(PORT, () => console.log(`Now listening on port ${PORT}`)))
     .catch(err => console.log(err))

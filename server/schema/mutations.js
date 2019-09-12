@@ -7,7 +7,8 @@ const {
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
 const Employer = require('../models/employer');
-const { UserType, EmployerType } = require('./types');
+const Message = require('../models/message');
+const { UserType, EmployerType, MessageType } = require('./types');
 
 const RootMutation = new GraphQLObjectType({
   name: 'Mutation',
@@ -57,6 +58,7 @@ const RootMutation = new GraphQLObjectType({
         if(registeredEmployer) {
           throw new Error('Employer email already registered, Please log in');
         };
+        
         const hashedPassword = await bcrypt.hash(args.password, 12);
 
         let employer = new Employer({
@@ -64,8 +66,33 @@ const RootMutation = new GraphQLObjectType({
           password: hashedPassword,
           company: args.company
         });
-        
+
         return await employer.save();
+      }
+    },
+    sendMessage: {
+      type: MessageType,
+      args: {
+        sender: { type: new GraphQLNonNull(GraphQLString) },
+        recipient: { type: new GraphQLNonNull(GraphQLString) },
+        subject: { type: new GraphQLNonNull(GraphQLString) },
+        content: { type: new GraphQLNonNull(GraphQLString) }
+      },
+      async resolve(parent, args) {
+        const oldResults = await User.findOne({ username: args.recipient });
+
+        const newMessage = new Message({
+          sender: args.sender,
+          recipient: args.recipient,
+          subject: args.subject,
+          content: args.content
+        });
+
+        const results = await User.findOneAndUpdate({ username: args.recipient}, {
+          $set: { messages: [ ...oldResults.messages, newMessage ]}
+        }, { new: true });
+
+        
       }
     }
   }

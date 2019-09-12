@@ -30,7 +30,19 @@ EmployerType = new GraphQLObjectType({
   })
 });
 
+MessageType = new GraphQLObjectType({
+  name: 'Messages',
+  fields: () => ({
+    id: { type: GraphQLID },
+    sender: { type: GraphQLString },
+    recipient: { type: GraphQLString },
+    subject: { type: GraphQLString },
+    content: { type: GraphQLString }
+  })
+});
+
 module.exports = {
   UserType,
-  EmployerType
+  EmployerType,
+  MessageType
 }

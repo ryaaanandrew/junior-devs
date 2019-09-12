@@ -30,7 +30,8 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  skills: []
+  skills: [],
+  messages: []
 });
 
 module.exports = mongoose.model('User', UserSchema);

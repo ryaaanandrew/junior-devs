@@ -1,20 +1,23 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const EmployerSchema = new Schema({
-  email: {
+const MessageSchema = new Schema({
+  sender: {
     type: String,
     required: true
   },
-  company: {
+  recipient: {
     type: String,
     required: true
   },
-  password: {
+  subject: {
     type: String,
     required: true
   },
-  messages: []
+  content: {
+    type: String,
+    required: true
+  }
 });
 
-module.exports = mongoose.model('Employer', EmployerSchema);
+module.exports = mongoose.model('Message', MessageSchema);
