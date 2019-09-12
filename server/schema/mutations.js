@@ -81,6 +81,8 @@ const RootMutation = new GraphQLObjectType({
       async resolve(parent, args) {
         const oldResults = await User.findOne({ username: args.recipient });
 
+        if(!oldResults) throw new Error('Username not found');
+
         const newMessage = new Message({
           sender: args.sender,
           recipient: args.recipient,
@@ -88,11 +90,11 @@ const RootMutation = new GraphQLObjectType({
           content: args.content
         });
 
-        const results = await User.findOneAndUpdate({ username: args.recipient}, {
+        return await User.findOneAndUpdate({ username: args.recipient}, {
           $set: { messages: [ ...oldResults.messages, newMessage ]}
         }, { new: true });
 
-        
+        // need to return messages, but need to return nested object inside messages array
       }
     }
   }
