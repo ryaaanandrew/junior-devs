@@ -5,10 +5,11 @@ const {
   GraphQLList
 } = require('graphql');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const Employer = require('../models/employer');
 const Message = require('../models/message');
-const { UserType, EmployerType, MessageType } = require('./types');
+const { UserType, EmployerType, MessageType, AuthDataType } = require('./types');
 
 const RootMutation = new GraphQLObjectType({
   name: 'Mutation',
@@ -68,6 +69,30 @@ const RootMutation = new GraphQLObjectType({
         });
 
         return await employer.save();
+      }
+    },
+    loginUser: {
+      type: AuthDataType,
+      args: {
+        email: { type: new GraphQLNonNull(GraphQLString) },
+        password: { type: new GraphQLNonNull(GraphQLString) }
+      },
+      async resolve(parent, args) {
+        const user = await User.findOne({ email: args.email });
+
+        if(!user) throw new Error('please check email');
+        
+        const isEqual = await bcrypt.compare(args.password, user.password);
+
+        if(!isEqual) throw new Error('please check password');
+
+        const token = jwt.sign({ userId: user.id, email: user.email }, '1234567890', { expiresIn: '1h' })
+
+        return {
+          token,
+          userId: user.id,
+          expiresIn: 1
+        }
       }
     },
     sendMessage: {

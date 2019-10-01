@@ -2,8 +2,18 @@ const {
   GraphQLObjectType,
   GraphQLString,
   GraphQLID,
-  GraphQLList
+  GraphQLList,
+  GraphQLNonNull
  } = require('graphql');
+
+AuthDataType = new GraphQLObjectType({
+  name: 'AuthData',
+  fields: () => ({
+    userId: { type: GraphQLString },
+    token: { type: GraphQLString },
+    expiresIn: { type: GraphQLString }
+  })
+});
 
 UserType = new GraphQLObjectType({
   name: 'User',
@@ -44,5 +54,6 @@ MessageType = new GraphQLObjectType({
 module.exports = {
   UserType,
   EmployerType,
-  MessageType
+  MessageType,
+  AuthDataType
 }

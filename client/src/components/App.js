@@ -11,6 +11,7 @@ import CandidateDetails from './pages/CandidateDetails';
 import AuthContextProvider from '../context/authContext';
 import RegisterSelection from './pages/RegisterSelection';
 import EmployerRegistration from './pages/EmployerRegistration';
+import Login from './pages/Login';
 
 const client = new ApolloClient({
   uri: 'http://localhost:3001/graphql'
@@ -30,6 +31,7 @@ const App = () => {
             <Route path='/register/employer/' component={EmployerRegistration} />
             <Route path='/register/user' component={UserRegistration} />
             <Route path='/user/:id' component={CandidateDetails} />
+            <Route path='/login' component={Login}/>
           </Switch>
         </AuthContextProvider>
       </BrowserRouter>

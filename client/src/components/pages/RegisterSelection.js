@@ -4,7 +4,7 @@ import ToggleContent from '../layout/ToggleComponent';
 import Modal from '../layout/Modal';
 
 const RegisterSelection = props => {
-  console.log(props);
+
   return(
     <div className="container">
       <h1>Register Selection</h1>
