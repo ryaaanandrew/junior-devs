@@ -9,6 +9,12 @@ const PORT = 3001;
 
 app.use(cors());
 
+// var corsOptions = {
+//   origin: '<insert uri of front-end domain>',
+//   credentials: true // <-- REQUIRED backend setting
+// };
+// app.use(cors(corsOptions));
+
 app.use('/graphQL', graphQLHTTP({
   schema: schema,
   graphiql: true
