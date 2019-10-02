@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react';
+import React, { useState, createContext, useReducer } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { formReducer } from '../context/formReducer';
 import { CREATE_USER, LOGIN_USER } from '../queries/authQueries';
@@ -6,6 +6,11 @@ import { CREATE_USER, LOGIN_USER } from '../queries/authQueries';
 export const AuthContext = createContext();
 
 const AuthContextProvider = props => {
+  const [userData, setUserData] = useState({
+    token: '',
+    userId: ''
+  });
+  const [loginErr, setLoginErr] = useState('');
   const INITIAL_STATE = {
     email: "email@email.com",
     username: "Your Name",
@@ -22,17 +27,34 @@ const AuthContextProvider = props => {
 
   const login = async (email, password) => {
     try {
-        const data = await loginUser({
+        const user = await loginUser({
           variables: {
             email,
             password
           }
         });
-        console.log(data);
+
+        const { userId, token, expiresIn } = user.data.loginUser;
+
+        setUserData({
+          token: token,
+          userId: userId,
+          expiresIn: expiresIn
+        })
+
+        sessionStorage.setItem('interdevs-data', JSON.stringify({ 
+          "token": token, 
+          "userId": userId, 
+          "expiresIn": expiresIn 
+        }));
     } catch(err) {
-      console.log(err)
-    }
-  }
+      setLoginErr(err);
+    };
+  };
+
+  const logout = () => {
+    console.log('logout');
+  };
 
   return(
     <AuthContext.Provider value={{ form, dispatch, createUser, login }}>

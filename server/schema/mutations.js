@@ -84,7 +84,7 @@ const RootMutation = new GraphQLObjectType({
         
         const isEqual = await bcrypt.compare(args.password, user.password);
 
-        if(!isEqual) throw new Error('please check password');
+        if(!isEqual) return Error('please check password');
 
         const token = jwt.sign({ userId: user.id, email: user.email }, '1234567890', { expiresIn: '1h' })
 

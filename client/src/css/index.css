@@ -147,6 +147,52 @@ h2 {
     justify-content: space-between;
     align-items: center; }
 
+.login {
+  color: white;
+  width: 40%;
+  padding: 2rem 2.5rem;
+  margin: 0 auto;
+  background-color: #2e2e2e;
+  text-align: center; }
+  .login > h1 {
+    font-size: 4rem;
+    margin-bottom: 2rem; }
+  .login > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center; }
+    .login > form > label {
+      font-size: 1.6rem;
+      margin-bottom: 1rem; }
+    .login > form > input {
+      margin-bottom: 2rem;
+      padding: .5rem 1rem;
+      font-size: 1.6rem;
+      color: #e2e2e2;
+      width: 25rem;
+      height: 2.9rem;
+      border: none;
+      border-radius: 2px;
+      border-bottom: 1px solid #505050;
+      background-color: rgba(5, 5, 5, 0.438); }
+  .login__btn {
+    width: 7.5rem;
+    height: 7.5rem;
+    background: linear-gradient(120deg, #1db954, #0f682e);
+    border-radius: 50%;
+    margin: 0 auto;
+    cursor: pointer;
+    border: none; }
+
+.err {
+  font-size: 1.5rem;
+  padding: 1rem 1.4rem;
+  margin-bottom: 2rem;
+  background-color: #ff5959;
+  border-radius: 10px;
+  transition: all .25s ease-out; }
+
 .navBar {
   padding: 1rem 1.5rem;
   position: relative;

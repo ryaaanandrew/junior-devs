@@ -13,6 +13,7 @@ const NavBar = () => {
         <li className="navBar__linkItem"><NavLink to='/candidates'>Candidates</NavLink></li>
         <li className="navBar__linkItem"><NavLink to='/about'>About</NavLink></li>
         <li className="navBar__linkItem"><NavLink to='/register'>Register</NavLink></li>
+        <li><NavLink to='/login'>Login</NavLink></li>
       </ul>
     </nav>
   );
