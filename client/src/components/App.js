@@ -23,7 +23,6 @@ import Login from './pages/Login';
 //   uri: 'http://localhost:3001/graphql'
 // });
 
-const cache = new InMemoryCache();
 const httpLink = new HttpLink({
   uri: 'http://localhost:3001/graphql'
 })

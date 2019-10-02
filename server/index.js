@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const graphQLHTTP = require('express-graphql');
 const schema = require('./schema');
 const cors = require('cors');
+const isAuth = require('./middleware/is-auth');
 
 const app = express();
 const PORT = 3001;
 
 app.use(cors());
+app.use(isAuth);
 
 // var corsOptions = {
 //   origin: '<insert uri of front-end domain>',
