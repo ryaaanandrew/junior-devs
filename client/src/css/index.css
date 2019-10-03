@@ -194,7 +194,49 @@ h2 {
   transition: all .25s ease-out; }
 
 .messages {
-  color: white; }
+  color: white;
+  width: 80%;
+  margin: 0 auto; }
+  .messages > h1 {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 2rem; }
+
+.messageCard {
+  font-size: 1.5rem;
+  background-color: #161616;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 5px; }
+  .messageCard__from, .messageCard__content {
+    width: 95%;
+    margin: 0 auto; }
+  .messageCard__from {
+    border-bottom: 1.5px solid #2c2c2c;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 0rem 2.5rem; }
+  .messageCard__sender {
+    color: #1db954;
+    border: 1px solid #1db954;
+    padding: 1rem 1.5rem;
+    border-radius: 5px; }
+  .messageCard__content {
+    padding: 1rem;
+    background: #2c2c2c;
+    position: relative; }
+    .messageCard__content:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 0;
+      height: 0;
+      border: 20px solid transparent;
+      border-right-color: #2c2c2c;
+      border-left: 0;
+      border-bottom: 0;
+      margin-top: -10px;
+      margin-left: -20px; }
 
 .navBar {
   padding: 1rem 1.5rem;

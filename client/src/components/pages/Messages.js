@@ -10,7 +10,12 @@ const Messages = () => {
     if(loading || error) return <li>Loading...</li>
       
     return data.getMessages.map(message => {
-      return <li>{ message.content }</li>
+      return (
+        <li className='messageCard'>
+          <div className="messageCard__from"><span className='messageCard__sender'>{ message.sender }</span></div>
+          <div className="messageCard__content"> { message.content }</div>
+        </li>
+      );
     });
   };
 

@@ -1,3 +1,59 @@
 .messages {
   color: white;
+  width: 80%;
+  margin: 0 auto;
+
+  & > h1 {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.messageCard {
+  font-size: 1.5rem;
+  background-color: $color-primary-dark;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 5px;
+
+  &__from,
+  &__content {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  &__from {
+    border-bottom: 1.5px solid rgb(44, 44, 44);
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 0rem 2.5rem;
+  }
+
+  &__sender {
+    color: $color-primary;
+    border: 1px solid $color-primary;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+  }
+
+  &__content {
+    padding: 1rem;
+    background: rgb(44, 44, 44);
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 0;
+      height: 0;
+      border: 20px solid transparent;
+      border-right-color: rgb(44, 44, 44);
+      border-left: 0;
+      border-bottom: 0;
+      margin-top: -10px;
+      margin-left: -20px;
+    }
+  }
 }
