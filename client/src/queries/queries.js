@@ -27,3 +27,15 @@ export const GET_CANDIDATE = gql`
     }
   }
 `
+
+export const GET_MESSAGES = gql`
+  query {
+    getMessages {
+      id
+      sender
+      recipient
+      subject
+      content
+    }
+  }
+`

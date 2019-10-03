@@ -16,9 +16,11 @@ const NavBar = props => {
         <li className="navBar__linkItem"><NavLink to='/'>Home</NavLink></li>
         <li className="navBar__linkItem"><NavLink to='/candidates'>Candidates</NavLink></li>
         <li className="navBar__linkItem"><NavLink to='/about'>About</NavLink></li>
+        { loggedIn ? <li className="navBar__linkItem"><NavLink to='/messages'>Messages</NavLink></li> : null } 
         { !loggedIn ? <li className="navBar__linkItem"><NavLink to='/register'>Register</NavLink></li> : null }
         { !loggedIn ? <li><NavLink to='/login'>Login</NavLink></li> : null }
         { loggedIn ? <li className="navBar__linkItem" onClick={logout}>Logout</li> : null }
+
       </ul>
     </nav>
   );

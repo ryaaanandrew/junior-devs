@@ -193,6 +193,9 @@ h2 {
   border-radius: 10px;
   transition: all .25s ease-out; }
 
+.messages {
+  color: white; }
+
 .navBar {
   padding: 1rem 1.5rem;
   position: relative;
