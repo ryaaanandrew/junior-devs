@@ -1,13 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks'
-
-import { ApolloClient } from 'apollo-client';
-import { HttpLink } from 'apollo-link-http';
-import { setContext } from 'apollo-link-context';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-
-// import ApolloClient from 'apollo-boost';
+import ApolloClient from 'apollo-boost';
 import NavBar from './layout/NavBar';
 import Home from './pages/Home';
 import Candidates from './pages/Candidates';
@@ -19,29 +13,16 @@ import RegisterSelection from './pages/RegisterSelection';
 import EmployerRegistration from './pages/EmployerRegistration';
 import Login from './pages/Login';
 
-// const client = new ApolloClient({
-//   uri: 'http://localhost:3001/graphql'
-// });
-
-const httpLink = new HttpLink({
-  uri: 'http://localhost:3001/graphql'
-})
-
-const authLink = setContext((_, { headers }) => {
-  const store = JSON.parse(sessionStorage.getItem('interdevs-data'));
-  const token = store.token;
-
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : "",
-    }
-  }
-});
-
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
+  uri: 'http://localhost:3001/graphql',
+  request: operation => {
+    const ssData = JSON.parse(sessionStorage.getItem('interdevs-data'));
+    operation.setContext({
+      headers: {
+        authorization: ssData ? `Bearer ${ssData.token}` : ''
+      }
+    });
+   }
 });
 
 const App = () => {

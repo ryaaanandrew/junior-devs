@@ -11,11 +11,12 @@ const PORT = 3001;
 app.use(cors());
 app.use(isAuth);
 
-// var corsOptions = {
-//   origin: '<insert uri of front-end domain>',
-//   credentials: true // <-- REQUIRED backend setting
-// };
-// app.use(cors(corsOptions));
+var corsOptions = {
+  origin: 'http://localhost:3000',
+  credentials: true // <-- REQUIRED backend setting
+};
+
+app.use(cors(corsOptions));
 
 app.use('/graphQL', graphQLHTTP({
   schema: schema,

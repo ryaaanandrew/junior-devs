@@ -4,20 +4,14 @@ import { GET_CANDIDATES } from '../../queries/queries';
 import Card from '../layout/Card';
 
 const Register = () => {
-  const { loading, data } = useQuery(GET_CANDIDATES);
-  const { users } = data;
+  const { loading, data, error } = useQuery(GET_CANDIDATES);
 
-  useEffect(() => {
-    const ss = JSON.parse(sessionStorage.getItem("interdevs-data"));
-    console.log(ss.token)
-  }, [])
+  if(loading || error) {
+    return <div className="container"><h1>Loading...</h1></div>
+  };
 
   const renderList = () => {
-    return users.map(user => <Card user={user} key={user.id}/>);
-  };
-  
-  if(loading || !users) {
-    return <h1>Loading...</h1>
+    return data.users.map(user => <Card user={user} key={user.id}/>);
   };
 
   return(

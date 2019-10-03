@@ -33,14 +33,13 @@ const AuthContextProvider = props => {
             password
           }
         });
-
         const { userId, token, expiresIn } = user.data.loginUser;
 
         setUserData({
           token: token,
           userId: userId,
           expiresIn: expiresIn
-        })
+        });
 
         sessionStorage.setItem('interdevs-data', JSON.stringify({ 
           "token": token, 
@@ -48,6 +47,7 @@ const AuthContextProvider = props => {
           "expiresIn": expiresIn 
         }));
     } catch(err) {
+      console.log(err);
       setLoginErr(err);
     };
   };

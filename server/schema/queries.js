@@ -8,7 +8,7 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     users: {
       type: new GraphQLList(UserType),
-      async resolve(parent, args) {
+      async resolve(parent, args, req) {
         return User.find();
       }
     },
