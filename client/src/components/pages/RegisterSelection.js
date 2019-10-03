@@ -7,8 +7,6 @@ const RegisterSelection = props => {
 
   return(
     <div className="container">
-      <h1>Register Selection</h1>
-
       <ToggleContent 
         // toggle={show => <button onClick={show}>Open</button>}
         content={hide => {

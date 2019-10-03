@@ -4,14 +4,13 @@ import { GET_MESSAGES } from '../../queries/queries';
 import MessageCard from '../layout/MessageCard';
 
 const Messages = () => {
-  const [messages, setMessages] = useState({});
   const { loading, data, error } = useQuery(GET_MESSAGES);
 
   const renderMessages = () => {
     if(loading || error) return <li>Loading...</li>
-      
+
     return data.getMessages.map(message => {
-      return <MessageCard message={message} />
+      return <MessageCard  key={message._id} message={message} />
     });
   };
 

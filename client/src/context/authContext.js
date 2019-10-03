@@ -1,4 +1,4 @@
-import React, { useState, createContext, useReducer } from 'react';
+import React, { useState, createContext, useReducer, useEffect } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { formReducer } from '../context/formReducer';
 import { CREATE_USER, LOGIN_USER } from '../queries/authQueries';
@@ -10,7 +10,6 @@ const AuthContextProvider = props => {
     token: '',
     userId: ''
   });
-  const [loginErr, setLoginErr] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
   const INITIAL_STATE = {
     email: "email@email.com",

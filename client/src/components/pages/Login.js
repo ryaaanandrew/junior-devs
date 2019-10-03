@@ -13,7 +13,7 @@ const Login = props => {
     if(email.length >= 5 && password.length >=5 ) {
       login(email, password);
       setLoginErr('');
-      // props.history.push('/');
+      props.history.push('/candidates');
     } else {
       setLoginErr('Please confirm your login details');
     };    

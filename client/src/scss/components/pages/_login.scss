@@ -5,6 +5,8 @@
   margin: 0 auto;
   background-color: rgb(46, 46, 46);
   text-align: center;
+  box-shadow: $box-shadow-1;
+  border-radius: 5px;
 
   & > h1 {
     font-size: 4rem;

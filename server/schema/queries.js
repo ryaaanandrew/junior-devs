@@ -31,10 +31,11 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(MessageType),
       async resolve(parent, args, req) {
         try {
-          // if(!req.isAuth || !req.userId) {
-          //   throw new Error('Unauthorized');
-          // };
-          const user = await User.findById('5d71764801e2d692f808ded9');
+          if(!req.isAuth || !req.userId) {
+            throw new Error('Unauthorized');
+          };
+
+          const user = await User.findById(req.userId);
 
           return user.messages;
         } catch(err) {
