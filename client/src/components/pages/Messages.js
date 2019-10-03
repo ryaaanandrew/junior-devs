@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_MESSAGES } from '../../queries/queries';
+import MessageCard from '../layout/MessageCard';
 
 const Messages = () => {
   const [messages, setMessages] = useState({});
@@ -10,12 +11,7 @@ const Messages = () => {
     if(loading || error) return <li>Loading...</li>
       
     return data.getMessages.map(message => {
-      return (
-        <li className='messageCard'>
-          <div className="messageCard__from"><span className='messageCard__sender'>{ message.sender }</span></div>
-          <div className="messageCard__content"> { message.content }</div>
-        </li>
-      );
+      return <MessageCard message={message} />
     });
   };
 
