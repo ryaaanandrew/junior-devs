@@ -11,6 +11,7 @@ const AuthContextProvider = props => {
     userId: ''
   });
   const [loginErr, setLoginErr] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
   const INITIAL_STATE = {
     email: "email@email.com",
     username: "Your Name",
@@ -46,18 +47,21 @@ const AuthContextProvider = props => {
           "userId": userId, 
           "expiresIn": expiresIn 
         }));
+
+        setLoggedIn(true);
     } catch(err) {
       console.log(err);
-      setLoginErr(err);
     };
   };
 
   const logout = () => {
-    console.log('logout');
+    console.log('logging out')
+    sessionStorage.removeItem('interdevs-data');
+    setLoggedIn(false);
   };
 
   return(
-    <AuthContext.Provider value={{ form, dispatch, createUser, login }}>
+    <AuthContext.Provider value={{ form, dispatch, createUser, login, loggedIn, logout }}>
       { props.children }
     </AuthContext.Provider>
   );

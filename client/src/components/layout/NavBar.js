@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context/authContext';
 import { NavLink } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = props => {
+  const context = useContext(AuthContext);
+  const { logout, loggedIn } = context;
+  
   return(
     <nav className="navBar">
       <div className="navBar__logo">
@@ -12,8 +16,9 @@ const NavBar = () => {
         <li className="navBar__linkItem"><NavLink to='/'>Home</NavLink></li>
         <li className="navBar__linkItem"><NavLink to='/candidates'>Candidates</NavLink></li>
         <li className="navBar__linkItem"><NavLink to='/about'>About</NavLink></li>
-        <li className="navBar__linkItem"><NavLink to='/register'>Register</NavLink></li>
-        <li><NavLink to='/login'>Login</NavLink></li>
+        { !loggedIn ? <li className="navBar__linkItem"><NavLink to='/register'>Register</NavLink></li> : null }
+        { !loggedIn ? <li><NavLink to='/login'>Login</NavLink></li> : null }
+        { loggedIn ? <li className="navBar__linkItem" onClick={logout}>Logout</li> : null }
       </ul>
     </nav>
   );

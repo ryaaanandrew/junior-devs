@@ -6,13 +6,10 @@ const ToggleContent = props => {
   const show = () => setIsShown(true);
 
   return(
-    <>
-      
+    <>    
       { isShown && props.content(hide) }
     </>
   );
 };
 
 export default ToggleContent;
-
-// { props.toggle(show) }
