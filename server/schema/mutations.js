@@ -118,8 +118,6 @@ const RootMutation = new GraphQLObjectType({
         return await User.findOneAndUpdate({ username: args.recipient}, {
           $set: { messages: [ ...oldResults.messages, newMessage ]}
         }, { new: true });
-
-        // need to return messages, but need to return nested object inside messages array
       }
     }
   }

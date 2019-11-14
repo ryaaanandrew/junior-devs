@@ -9,7 +9,6 @@ const RootQuery = new GraphQLObjectType({
     users: {
       type: new GraphQLList(UserType),
       async resolve(parent, args, req) {
-        console.log('userid: ', req.userId);
         return User.find();
       }
     },

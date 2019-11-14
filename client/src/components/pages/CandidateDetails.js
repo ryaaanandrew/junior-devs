@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_CANDIDATE } from '../../queries/queries';
 import MiniNav from '../layout/MiniNav';
@@ -25,7 +26,9 @@ const Details = props => {
           <div className="details__header-content">
             <h1>{ username }</h1>
             <h3>Web Developer</h3>
+
             <div className="header-actions">
+              <Link to='/messages/send' className="header-actions__link">Message</Link>
               <a href="/null" className="header-actions__link">email</a>
               <a href="/null" className="header-actions__link">github</a>
               <a href="/null" className="header-actions__link">linkedin</a>
@@ -38,7 +41,7 @@ const Details = props => {
           </div>
           <div className="details__skills">
             <ul className="skills__list">
-              { skills.map(skill => <li className="skills__item" key={id}><span><span>+</span>  { skill }</span></li>) }
+              { skills.map((skill, i )=> <li className="skills__item" key={i}><span><span>+</span>  { skill }</span></li>) }
             </ul>
           </div>
         </div>
