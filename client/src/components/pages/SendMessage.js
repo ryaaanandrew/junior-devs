@@ -15,9 +15,9 @@ const SendMessage = () => {
     sendMessage({
       variables: {
         recipient: recipient,
-        sender: 'Meryl Silverburg',
+        sender: "Meryl Silverburg",
         subject: subject,
-        message: message,
+        content: message,
       }
     });
   }
